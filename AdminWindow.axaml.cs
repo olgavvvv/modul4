@@ -1,0 +1,4 @@
+
+DataContext = new AdminWindowViewModel();
+
+
