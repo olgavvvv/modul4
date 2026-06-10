@@ -1,0 +1,8 @@
+
+<StackPanel>
+    <TextBox Text="{Binding Login}"/>
+    <TextBox Text="{Binding Password}" PasswordChar="*"/>
+    <Button Command="{Binding Authenticate}" CommandParameter="{Binding $parent[Window]}"/>
+</StackPanel>
+
+
