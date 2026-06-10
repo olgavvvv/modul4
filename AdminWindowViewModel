@@ -1,0 +1,46 @@
+public partial class AdminWindowViewModel : ViewModelBase
+{
+    private readonly MyDbContext _context;
+    public ObservableCollection<User> Users {get; set;}
+
+    public AdminWindowViewModel()
+    {
+        _context = new MyDbContext();
+
+        var users = _context.Users.ToList();
+        Users = new ObservableCollection<User>(users);
+        AddRow();
+    }
+    
+
+    private void AddRow()
+    {
+        Users.Add(new User());
+    }
+    
+    public async Task Save()
+    {
+
+        try
+        {
+            _context.UpdateRange(Users);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception e)
+        {
+            if (e.InnerException.Message.Contains("23505"))
+                
+                await MessageBoxManager
+                    .GetMessageBoxStandard("Ошибка", "Пользователь с таким логином уже существует")
+                    .ShowAsync();
+            {
+                
+            }
+            Console.WriteLine(e);
+
+        }
+        
+    }
+}
+
+
