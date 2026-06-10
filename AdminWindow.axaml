@@ -1,0 +1,17 @@
+
+
+    <StackPanel>
+       <DataGrid ItemsSource="{Binding Users}" AutoGenerateColumns="True">
+           <!-- <DataGrid.Columns> -->
+           <!--     <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/> -->
+           <!--     <DataGridTextColumn Header="Имя" Binding="{Binding Nickname}"/> -->
+           <!--     <DataGridCheckBoxColumn Header="Активность" Binding="{Binding Isactive}"/> -->
+           <!-- </DataGrid.Columns> -->
+       </DataGrid>
+        
+        <Button Content="Добавить строку" Command="{Binding AddRow}"/>
+        <Button Content="Сохранить изменения" Command="{Binding Save}"/>
+    </StackPanel>
+
+</Window>
+
