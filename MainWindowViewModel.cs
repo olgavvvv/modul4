@@ -62,3 +62,35 @@ public class ResultFio
     public string Value { get; set; }
 }
 
+
+
+
+public async Task GetFio()
+{
+    try
+    {
+        var client = new HttpClient();
+        // Пример: IP - 192.168.1.100, порт - 5256
+        string serverIp = "192.168.1.100";  // IP сервера
+        int port = 5256;                    // Порт сервера
+        
+        string url = $"http://{serverIp}:{port}";
+        var response = await client.GetAsync(url);
+        var content = await response.Content.ReadFromJsonAsync<ResultFio>();
+
+        FIO = content.Value;
+
+        if (Regex.IsMatch(FIO, @"^[А-Яа-яЁ-ё\s]+$"))
+        {
+            Result = "ФИО не содержит запрещенные символы";
+        }
+        else
+        {
+            Result = "ФИО содержит запрещенные символы";
+        }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e);
+    }
+}
