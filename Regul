@@ -1,0 +1,56 @@
+using System.Text.RegularExpressions;
+
+string FIO = "Иванов1 Иван Иванович";
+
+if (Regex.IsMatch(FIO, @"^[а-яА-ЯЁ-ё\s]+$"))
+{
+    Console.WriteLine("Валидно");
+}
+else
+{
+    Console.WriteLine("Не валидно");
+}
+
+
+using System.Text.RegularExpressions;
+
+string email = "qwe@qwe.com";
+
+if (Regex.IsMatch(email, @"^[a-zA-Z0-9._%+_]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+{
+    Console.WriteLine("Валидно");
+}
+else
+{
+    Console.WriteLine("Не валидно");
+}
+
+using System.Text.RegularExpressions;
+
+string phone = "+7 933 786-12-45";
+
+if (Regex.IsMatch(phone, @"^\+7 \d{3}\ \d{3}\-\d{2}-\d{2}$"))
+{
+    Console.WriteLine("Валидно");
+}
+else
+{
+    Console.WriteLine("Не валидно");
+}
+
+
+using System.Text.RegularExpressions;
+
+string pasport = "9087 675423";
+
+if (Regex.IsMatch(pasport, @"^\d{4} \d{6}$"))
+{
+    Console.WriteLine("Валидно");
+}
+else
+{
+    Console.WriteLine("Не валидно");
+}
+
+
+
