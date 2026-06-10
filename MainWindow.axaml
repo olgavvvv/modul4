@@ -1,0 +1,16 @@
+<Grid ColumnDefinitions="*, *" RowDefinitions="*, *">
+    <Button Grid.Row="0" Grid.Column="0" Command="{Binding GetFio}" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+        <TextBlock Text="Получить данные" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+    </Button>
+    
+    <Button Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Command="{Binding Validation}" HorizontalAlignment="Stretch">
+        <TextBlock Text="Отправить результаты теста" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+    </Button>
+    
+    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding FIO}"
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    
+    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Result}"
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+</Grid>
+
